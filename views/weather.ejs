@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= djs.city.name %> - (<%= djs.city.country %>)</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat&family=Fredoka+One&family=Josefin+Sans&family=Roboto+Mono&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="/styles/style.css">
+</head>
+<body>
+  <% function kToC(k) { %>
+    <% return Math.round((k - 273.15).toFixed(2)); %>
+  <% } %>
+  <h1><%= djs.city.name %> Weather Now</h1>
+  <div class="weather__box">
+    <div class="weather__now">
+      <div class="weather__now--info">
+        <h2><span><%= djs.city.name %></span> / <span><%= djs.city.country %></span></h2>
+        <h3><%= date.getMonth() + 1 %>/<%= date.getDate() %> <%= day %></h3>
+        <p class="weather__info--txt"><%= djs.list[0].weather[0].main %></p>
+        <p class="weather__info--minmax">max<%= kToC(djs.list[0].main.temp_max) %>°C min<%= kToC(djs.list[0].main.temp_min) %>°C</p>
+      </div>
+      <p class="weather__now--temp"><%= kToC(djs.list[0].main.temp) %>°C</p>
+    </div>
+    <div class="weather__forecast--outer">
+      <ul class="weather__forecast">
+        <% for (let i = 0; i < 8; i++) { %>
+          <% let dayTxt = djs.list[i].dt_txt %>
+          <li class="weather__forecast--item">
+            <p class="forecast__item--time"><%= dayTxt.slice(5, 16) %></p>
+            <p class="forecast__item--txt"><%= djs.list[i].weather[0].main %></p>
+            <p class="forecast__item--temp"><%= kToC(djs.list[i].main.temp) %>°C</p>
+          </li>
+        <% } %>
+      </ul>      
+    </div>
+
+  </div>
+</body>
+</html>
