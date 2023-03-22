@@ -5,6 +5,8 @@
 
 此專案是在[Node.js](https://nodejs.org/en/)的環境下開發，結合[OpenWeather](https://openweathermap.org/api) API的功能，可觀看所輸入城市的天氣狀況，以及每三小時一次的天氣預報。
 
+![](https://i.imgur.com/i5bTGaa.gif)
+
 ## Features - 功能列表
 * 顯示該城市的即時天氣狀況，包含地點、日期、天氣、溫度、最高最低溫度
 * 顯示每三小時一次的天氣預報，包含日期、時間、天氣、溫度
